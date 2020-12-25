@@ -1,22 +1,20 @@
-import express from "express";
-import mongoose from "mongoose";
-import dotenv from "dotenv"
-import cors from "cors";
-import bodyperser from "body-parser"
-dotenv.config();
-import {route} from "./routes/points.js"
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import mapboxgl from 'mapbox-gl';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZG9ueWFkaW5hOTk0IiwiYSI6ImNrajM1ZnJidzVibzgyeWxiOHQya200N2EifQ.SGIhNZdiWPHOpNQIYzWbCQ';
 
-/* const {g}=routes;
- */
-const app = express()
-const port = 8000 
-app.use(bodyperser.json())
-app.use(cors())
-app.use("/",route)
 
-app.listen(port, () =>{
- mongoose.connect(process.env.DB_URL,{
-      useUnifiedTopology: true,useNewUrlParser: true }).then(()=>{
-     console.log("all things are ok")
- }).catch(err=> console.log(err))
-})
+ ReactDOM.render(
+
+    <App />
+,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
